@@ -1,8 +1,9 @@
 # https://docs.python.org/3/library/re.html
 # https://docs.python.org/3/howto/regex.html#regex-howto
 import re
-
-# findall search sub
+# findAll - global flag
+# search - fist match
+# sub - replace
 # compile
 # Case sensitivy
 
