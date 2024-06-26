@@ -2,7 +2,7 @@
 # https://docs.python.org/3/howto/regex.html#regex-howto
 import re
 # findAll - global flag
-# search - fist match
+# search - fist match - Returns a Match object
 # sub - replace
 # compile
 # Case sensitivy
