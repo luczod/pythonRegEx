@@ -17,3 +17,24 @@ strong_pw_regexp = re.compile(
     r'.{12,}'
     r'$',
     flags=re.M)
+
+
+def add_li_tags(file_path):
+    # Read the file and get all lines
+    with open(file_path, 'r') as file:
+        lines = file.readlines()
+
+    # Add <li> tags to each line
+    tagged_lines = [f'<li>{line.strip()}</li>' for line in lines]
+
+    # Join the tagged lines into a single string
+    result = '\n'.join(tagged_lines)
+    with open(file_path, 'w', encoding='utf-8') as file:
+        file.write(result)
+
+    return True  # result
+
+
+file_path = 'example.txt'
+tagged_text = add_li_tags(file_path)
+print(tagged_text)
