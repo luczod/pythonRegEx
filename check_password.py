@@ -21,11 +21,16 @@ strong_pw_regexp = re.compile(
 
 def add_li_tags(file_path):
     # Read the file and get all lines
-    with open(file_path, 'r') as file:
+    with open(file_path, 'r', encoding='utf-8') as file:
         lines = file.readlines()
 
     # Add <li> tags to each line
     tagged_lines = [f'<li>{line.strip()}</li>' for line in lines]
+    """ for line in lines:
+        if len(line.strip()) < 1:
+            tagged_lines.append(f'{line.strip()}')
+        else:
+            tagged_lines.append(f'<li>{line.strip()}</li>') """
 
     # Join the tagged lines into a single string
     result = '\n'.join(tagged_lines)
