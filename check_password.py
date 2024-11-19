@@ -7,6 +7,7 @@
 # () group
 # re.M -> Multiline
 import re
+from _typeshed import FileDescriptorOrPath
 
 strong_pw_regexp = re.compile(
     r'^'
@@ -19,7 +20,7 @@ strong_pw_regexp = re.compile(
     flags=re.M)
 
 
-def add_li_tags(file_path):
+def add_li_tags(file_path: FileDescriptorOrPath) -> bool:
     # Read the file and get all lines
     with open(file_path, 'r', encoding='utf-8') as file:
         lines = file.readlines()

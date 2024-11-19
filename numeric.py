@@ -41,11 +41,11 @@ b5
 '''
 
 
-def is_float(string):
+def is_float(string: str) -> bool:
     return bool(re.search(r'^[+-]?\d+(?:\.\d+)?$', string))
 
 
-def is_int(string):
+def is_int(string: str) -> bool:
     return bool(re.search(r'^[+-]?\d+$', string))
 
 

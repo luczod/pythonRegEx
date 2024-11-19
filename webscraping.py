@@ -3,7 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urlparse
 
-def extract_text(url):
+def extract_text(url: str) -> None:
     # Send a GET request to the URL
     response = requests.get(url)
 
@@ -26,18 +26,18 @@ def extract_text(url):
 
 
 
-def extract_css(url):
+def extract_css(url: str) -> tuple[list, list]:
     # Send a GET request to the URL
     response = requests.get(url)
 
     # Check if the request was successful
     if response.status_code != 200:
-        raise Exception(f"Failed to load page, status code: {
-                        response.status_code}")
+        raise Exception(f"Failed to load page, status code: {response.status_code}")
 
     # Parse the HTML content
     soup = BeautifulSoup(response.content, 'html.parser')
     inline_css = []
+
     for attribute in soup.find_all(lambda tag: tag.has_attr('style')):
         print(attribute.name)
         # inline_css += style.get_text() + '\n'
@@ -71,7 +71,7 @@ def extract_css(url):
     return inline_css, linked_css
 
 
-def download_website(url, statusCode):
+def download_website(url: str, statusCode: int) -> None:
     if not os.path.exists("webPage/css"):
         os.makedirs("webPage/css")
 

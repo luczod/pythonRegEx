@@ -1,20 +1,20 @@
 from random import randint, choice, shuffle
 
 
-def zero_a_nove():
+def zero_a_nove() -> str:
     return chr(randint(48, 57))
 
 
-def a_a_z():
+def a_a_z() -> str:
     return chr(randint(97, 122))
 
 
-def A_a_Z():
+def A_a_Z() -> str:
     return chr(randint(65, 90))
 
 
 # Unicode Table
-def special_chars():
+def special_chars() -> str:
     rand_range = [
         randint(32, 47),  # \u0020-\u002F [ -\/]
         randint(58, 64),  # \u003A-\u0040 [:-@]
@@ -28,7 +28,9 @@ def special_chars():
     return chr(choice(rand_range))
 
 
-def create_pass(length=12, upper=True, lower=True, numbers=True, chars=True):
+def create_pass(length: int = 12, upper: bool = True, lower: bool = True,
+                numbers: bool = True,  chars: bool = True) -> str:
+
     password = []
 
     for i in range(length):
@@ -43,6 +45,7 @@ def create_pass(length=12, upper=True, lower=True, numbers=True, chars=True):
 
     password = password[:length]
     shuffle(password)
+
     return ''.join(password)
 
 
