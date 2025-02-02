@@ -21,8 +21,8 @@ def extract_text(url: str) -> None:
     with open('foos.txt', 'w', encoding='utf-8') as file:
             file.write(str(tag_text))
 
-    print(tag_text)
-    return
+    return print(tag_text)
+
 
 
 
@@ -88,5 +88,4 @@ def download_website(url: str, statusCode: int) -> None:
 
 
 if __name__ == '__main__':
-    # download_website("https://", 200)
-    extract_text("http://localhost/foo/")
+    download_website("https://", 200)
